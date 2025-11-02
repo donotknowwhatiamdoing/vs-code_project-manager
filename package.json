@@ -1,0 +1,57 @@
+{
+  "name": "workspace-explorer-modern",
+  "displayName": "Workspace Explorer (Modern)",
+  "description": "Zeigt .code-workspace-Dateien aus einem frei wählbaren Ordner in der Seitenleiste.",
+  "version": "0.0.1",
+  "publisher": "local",
+  "engines": { "vscode": "^1.95.0" },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:workspaceExplorerModern.setBaseFolder",
+    "onView:workspaceExplorerModern.view"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "workspaceExplorerModern.container",
+          "title": "Workspaces",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "workspaceExplorerModern.container": [
+        {
+          "id": "workspaceExplorerModern.view",
+          "name": "Workspace Explorer"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "workspaceExplorerModern.setBaseFolder",
+        "title": "Workspace Explorer: Basisordner festlegen"
+      },
+      {
+        "command": "workspaceExplorerModern.openWorkspace",
+        "title": "Workspace Explorer: Workspace öffnen"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Workspace Explorer (Modern)",
+      "properties": {
+        "workspaceExplorerModern.baseFolder": {
+          "type": "string",
+          "default": "",
+          "description": "Ordner, in dem .code-workspace-Dateien gesucht werden."
+        }
+      }
+    }
+  },
+  "scripts": {},
+  "license": "MIT"
+}
